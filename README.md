@@ -198,6 +198,27 @@ python3 tools/gen.py fabric-1.20.1
 CI：`.github/workflows/build-all.yml`（main）用 matrix 一次性编译全部 22 个分支，
 每个分支自身也带 `.github/workflows/build.yml`。
 
+### 直接下载全部 jar（推荐给测试用）
+
+到 [Actions](../../actions/workflows/build-all.yml) 页面：
+**Run workflow** → 勾选 `release` → 运行。构建完成后会自动创建一个 Release，
+**22 个 jar 全部挂在附件里**，逐个下载即可，不用解压 artifact 压缩包。
+
+也可以随便点开一次成功的 `Build All Versions` 运行，在页面底部 **Artifacts** 里
+下载 `xp-jetpack-<loader>-<mc>-<run_number>`（zip，内含 jar）。
+
+### 测试指引
+
+装进游戏后建议按这个顺序验：
+
+1. `/fly` 开关喷气 → 空中按空格能往上飞，HUD 显示经验在掉
+2. 经验烧光 → 立刻停喷，聊天栏提示「经验不足」，HUD 变红
+3. 跳进水里憋气 → 聊天栏应出现呼吸扣经验的提示，**不会**掉氧
+4. 走进火里/岩浆 → 不掉血，经验在掉
+5. 让怪打你一下 → 伤害减半，聊天栏提示「经验护盾抵挡了 X 点伤害，消耗 Y 经验」
+6. 挖一块铁矿石 → 直接掉铁锭而不是粗铁，扣 10 经验；带**精准采集**再挖 → 掉原矿、不扣经验
+7. `/xps` 看总状态；`/xps shield off` 关掉护盾再挨打 → 伤害恢复全额
+
 ## 7. 常见问题
 
 **Q：为什么喷气时不会被判定成飞行作弊？**
