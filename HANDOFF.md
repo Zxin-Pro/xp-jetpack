@@ -3,23 +3,35 @@
 > 交接时间：2026-10-14
 > 仓库：https://github.com/Zxin-Pro/xp-jetpack
 > Actions：https://github.com/Zxin-Pro/xp-jetpack/actions
-> 最新 Release：https://github.com/Zxin-Pro/xp-jetpack/releases/tag/v1.0.0-34
+> 最新 Release：https://github.com/Zxin-Pro/xp-jetpack/releases/tag/v1.0.0-40
 
 ---
 
 ## 0. 一句话现状
 
-喷气功能 + 经验生存套件（4 功能）已全部实现，**22 个版本分支 CI 全绿**，
-但 **Fabric 26.3 在游戏里加载失败**（版本范围写成精确匹配），**这是当前唯一的阻塞问题**，修复方案见 §1。
+喷气功能 + 经验生存套件（4 功能）已全部实现，**22 个版本分支 CI 全绿**。
+
+原先唯一的阻塞（26.x 的 Minecraft 依赖被写成精确匹配）**已于 2026-10-14 修复**：
+6 个 26.x 分支已重新生成并推送，`main` 上的 `tools/gen.py` 也已同步修正，
+并重新构建发布了修复后的 Release。详见 §1（含结论）与 §9。
 
 ## 0.1 接手第一步（给接手的 AI）
 
-1. **读 §1**，按那里的步骤修 `gen.py` 里 `mc_range()` 的 26.x 精确匹配问题
+1. **读 §9 的「待办」**，那里才是真正还没做的事；§1 的阻塞问题已修复，仅作背景保留
 2. §4–§8 是背景知识（工程结构 / 架构 / 跨版本分叉表 / 踩坑 / 构建推送流程），**改动时再查，不必先通读**
 
 ---
 
-## 1. 🔴 当前阻塞：26.x 的 Minecraft 依赖写成精确匹配
+## 1. ✅ 已修复：26.x 的 Minecraft 依赖曾写成精确匹配
+
+> **状态：已修复（2026-10-14）。本节仅作背景记录，无需再动手。**
+>
+> - `tools/gen.py` 的 `mc_range()` 已删除 26.x 特判，统一走区间逻辑（即下方「修复方案」，也是当前线上实现）。
+> - 6 个 26.x 分支（fabric / neoforge × 26.1 / 26.2 / 26.3）已重新生成并推送，例如
+>   `fabric-26.3` 的 `"minecraft": "[26.3,26.4)"`、`neoforge-26.3` 的 `versionRange="[26.3,26.4)"`，其余同理。
+> - `main` 上的 `tools/gen.py` 同步修正（commit `b192ef9`），并顺带修掉了生成器里
+>   `LICENSE` / `.gitignore` 的错误复制路径（原先按 `main/…` 取，而 `main/` 目录其实并不存在）。
+> - 已重新构建并发布 Release `v1.0.0-40`，22 个 jar 均为修复后的依赖范围。
 
 ### 现象
 
@@ -457,6 +469,8 @@ gh run view <run-id> --repo Zxin-Pro/xp-jetpack --log-failed | rg -i "error|Caus
 | 经验生存套件（4 功能） | ✅ 完成 |
 | 可扩展架构 + 增量接口文档 | ✅ 完成 |
 | Release `v1.0.0-32` / `v1.0.0-34` | ✅ 各含 22 个 jar |
+| 26.x 依赖范围修复（§1） | ✅ 6 个 26.x 分支 + `main` 生成器均已修正 |
+| Release `v1.0.0-40`（修复后重建） | ✅ 含 22 个 jar |
 
 ### 四个功能
 
@@ -478,8 +492,8 @@ gh run view <run-id> --repo Zxin-Pro/xp-jetpack --log-failed | rg -i "error|Caus
 
 ### 待办
 
-- [ ] **修 `mc_range()` 的 26.x 精确匹配问题**（§1，当前阻塞）
-- [ ] （可选）把生存套件补充进 `main/VERSIONS.md` 的版本表
+- [x] **修 `mc_range()` 的 26.x 精确匹配问题**（§1）—— 已完成（2026-10-14）
+- [ ] （可选）把生存套件补充进 `VERSIONS.md` 的版本表
 
 ---
 
