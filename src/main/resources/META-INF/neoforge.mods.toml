@@ -26,6 +26,6 @@ side="BOTH"
 [[dependencies.xpjetpack]]
 modId="minecraft"
 type="required"
-versionRange="[26.1]"
+versionRange="[26.1,26.2)"
 ordering="NONE"
 side="BOTH"
