@@ -101,3 +101,46 @@
 
 > 排查方法：26.1+ 官方 jar 已去混淆，用自写 Python class 解析器直接 dump 真实类名/方法签名定位替代 API
 > （工具见 `tools/jcls.py` 的等价实现，仓库内模板已固化结论）。
+
+---
+
+## 经验生存套件（2026-10-14 增量）
+
+四个功能已合入**全部 22 个分支**，每个分支的 CI 均实测通过：
+
+| 功能 | 默认消耗 | 跨版本处理 |
+|---|---|---|
+| 水下呼吸 | 2 经验/秒 | 无分叉（`isUnderWater()` + 6 参 `MobEffectInstance` 全版本一致） |
+| 防火 | 3 经验/秒 | 无分叉（`isInLava()` / `isOnFire()` / `clearFire()` 全版本一致） |
+| 经验护盾 | 4 经验/点伤害 | Fabric 分叉：1.21+ 用 `AFTER_DAMAGE` + `heal()` 回补；1.20.x 无该事件，改用 `ALLOW_DAMAGE` + 取消原伤害 + 按削减值补刀 |
+| 经验熔炉 | 10 经验/块 | 配方 API 四支分叉，见下表 |
+
+### 熔炼配方查询的四处分叉（实测 mappings 得出）
+
+| 版本区间 | 取结果方式 | 输入容器 |
+|---|---|---|
+| 1.20.1 | `recipe.getResultItem(regs)` | `SimpleContainer` |
+| 1.20.2 – 1.20.6 | `recipeHolder.value().getResultItem(regs)` | `SimpleContainer` |
+| 1.21.1 – 1.21.11 | `recipeHolder.value().assemble(input, regs)` | `SingleRecipeInput` |
+| 26.1 – 26.3 | `recipeHolder.value().assemble(input)` | `SingleRecipeInput` |
+
+> **`RecipeHolder` 是 1.20.2 引入的，不是 1.20.5** —— 版本阈值必须逐版核实。
+> `RecipeInput` / `SingleRecipeInput` 则确实自 1.21.0 才出现。
+
+### 加载器事件分叉（实测）
+
+| 加载器 | 伤害事件 | 方块破坏事件 |
+|---|---|---|
+| Forge | `LivingHurtEvent` | `BlockEvent.BreakEvent` |
+| NeoForge 1.20.6 | `LivingHurtEvent` | `BlockEvent.BreakEvent` |
+| NeoForge 1.21.1 – 26.1 | `LivingIncomingDamageEvent` | `BlockEvent.BreakEvent` |
+| NeoForge 26.2 – 26.3 | `LivingIncomingDamageEvent` | **`BreakBlockEvent`**（内嵌类已被移除） |
+| Fabric 1.20.x | `ALLOW_DAMAGE`（仅能取消） | `PlayerBlockBreakEvents.AFTER` |
+| Fabric 1.21+ | `AFTER_DAMAGE` | `PlayerBlockBreakEvents.AFTER` |
+
+### CI 环境要点
+
+**Loom 1.18 要求 Gradle 运行在 JVM 25**（哪怕编译目标是 17/21）。
+`setup-java` 装两次会互相覆盖 `JAVA_HOME`，因此必须**先装「编译目标 JDK」、后装「Gradle 运行 JDK 25」**。
+分支工作流与聚合工作流（`build-all.yml`）均已按此顺序配置。
+
