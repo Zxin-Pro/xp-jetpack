@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      release:
+        description: '构建完成后创建 Release（把 22 个 jar 挂上去，方便下载测试）'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -103,3 +108,39 @@ jobs:
             echo "- job status: \`${{ job.status }}\`"
             echo "- java: ${{ matrix.java }}"
           } >> "$GITHUB_STEP_SUMMARY"
+
+  release:
+    name: Publish Release
+    needs: build
+    # 只有手动触发并勾选 release 时才发布，日常 push 只构建
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: List files
+        run: find artifacts -name '*.jar' | sort
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0-${{ github.run_number }}
+          name: XP Jetpack + 经验生存套件 (build ${{ github.run_number }})
+          body: |
+            22 个版本分支全部构建通过，附件是全部 jar，可直接下载测试。
+
+            **经验喷气背包** — 经验驱动飞行，`/fly` 开关，空中按空格推进，鞘翅无烟花推进
+            **经验生存套件** — 水下呼吸 · 防火 · 经验护盾 · 经验熔炉（全部默认开启、全自动）
+
+            指令：`/fly` · `/xpsurvival`（别名 `/xps`）· `/respiration` `/fireproof` `/shield` `/autosmelt`
+
+            配置文件：Forge/NeoForge 为 `config/xpjetpack-common.toml`，Fabric 为
+            `config/xpjetpack.json`（功能配置另存 `config/xpjetpack-features.json`）。
+          files: artifacts/**/*.jar
+          draft: false
+          prerelease: false
