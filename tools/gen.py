@@ -57,8 +57,6 @@ LOADER_MIN = {'forge': '47', 'neoforge': '20.6', 'fabric': None}
 
 def mc_range(mc):
     """mods.toml / fabric.mod.json 的 minecraft 依赖范围。"""
-    if mc.startswith('26.'):
-        return '[' + mc + ']'
     parts = mc.split('.')
     major, minor = int(parts[0]), int(parts[1])
     return '[' + mc + ',' + str(major) + '.' + str(minor + 1) + ')'
@@ -326,8 +324,9 @@ def generate_one(t):
     os.chmod(os.path.join(dest, 'gradlew'), 0o755)
 
     # 8. LICENSE / .gitignore / workflow
-    shutil.copy2(os.path.join(ROOT, 'main', 'LICENSE'), os.path.join(dest, 'LICENSE'))
-    shutil.copy2(os.path.join(ROOT, 'main', '.gitignore'), os.path.join(dest, '.gitignore'))
+    repo_root = os.path.dirname(ROOT)
+    shutil.copy2(os.path.join(repo_root, 'LICENSE'), os.path.join(dest, 'LICENSE'))
+    shutil.copy2(os.path.join(repo_root, '.gitignore'), os.path.join(dest, '.gitignore'))
     wf = os.path.join(dest, '.github', 'workflows')
     os.makedirs(wf, exist_ok=True)
     open(os.path.join(wf, 'build.yml'), 'w', encoding='utf-8', newline='\n').write(
