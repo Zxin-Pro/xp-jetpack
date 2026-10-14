@@ -1,0 +1,27 @@
+{
+  "xpjetpack.msg.enabled": "Jetpack: ON",
+  "xpjetpack.msg.disabled": "Jetpack: OFF",
+  "xpjetpack.msg.no_xp": "Out of experience — jetpack stopped!",
+  "xpjetpack.msg.status": "Jetpack %s · XP points %s · %s s of flight left",
+
+  "xpjetpack.feature.respiration": "Water Breathing",
+  "xpjetpack.feature.respiration.desc": "Spend XP to keep breathing underwater",
+  "xpjetpack.feature.fireproof": "Fireproof",
+  "xpjetpack.feature.fireproof.desc": "Spend XP to negate fire and lava damage",
+  "xpjetpack.feature.shield": "XP Shield",
+  "xpjetpack.feature.shield.desc": "Spend XP to block part of incoming damage",
+  "xpjetpack.feature.autosmelt": "XP Furnace",
+  "xpjetpack.feature.autosmelt.desc": "Spend XP to auto-smelt ores when mining",
+
+  "xpjetpack.survival.header": "=== XP Survival Suite ===",
+  "xpjetpack.survival.usage": "Usage: /xps <feature> on|off|toggle|status",
+  "xpjetpack.survival.no_player": "This command can only be run by a player.",
+  "xpjetpack.survival.unknown": "Unknown feature: %s",
+  "xpjetpack.survival.state.on": "ON",
+  "xpjetpack.survival.state.off": "OFF",
+  "xpjetpack.survival.turned_on": "%s enabled",
+  "xpjetpack.survival.turned_off": "%s disabled",
+  "xpjetpack.survival.toggled": "%s → %s",
+  "xpjetpack.survival.reloaded": "Configuration reloaded",
+  "xpjetpack.survival.xp": "Current XP points: %s"
+}
