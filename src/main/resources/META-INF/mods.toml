@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/Zxin-Pro/xp-jetpack/issues"
+
+[[mods]]
+modId="xpjetpack"
+version="1.0.0"
+displayName="XP Jetpack"
+authors="Zxin-Pro"
+logoFile="icon.png"
+description='''
+把玩家经验直接当燃料的指令喷气背包，支持鞘翅无烟花推进；另含经验生存套件（水下呼吸 / 防火 / 经验护盾 / 经验熔炉）。
+· /fly 开关喷气，空中按住空格推进
+· 鞘翅滑翔时无烟花推进
+· 不添加任何物品，纯玩家状态驱动
+'''
+
+[[dependencies.xpjetpack]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.xpjetpack]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.2,1.21)"
+ordering="NONE"
+side="BOTH"
