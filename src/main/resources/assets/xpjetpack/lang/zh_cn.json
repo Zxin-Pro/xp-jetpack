@@ -1,0 +1,27 @@
+{
+  "xpjetpack.msg.enabled": "喷气状态：开",
+  "xpjetpack.msg.disabled": "喷气状态：关",
+  "xpjetpack.msg.no_xp": "经验耗尽，喷气已停止！",
+  "xpjetpack.msg.status": "喷气状态：%s · 经验点：%s · 剩余飞行约 %s 秒",
+
+  "xpjetpack.feature.respiration": "水下呼吸",
+  "xpjetpack.feature.respiration.desc": "在水下自动消耗经验维持呼吸",
+  "xpjetpack.feature.fireproof": "防火",
+  "xpjetpack.feature.fireproof.desc": "在火焰与岩浆中消耗经验免疫火焰伤害",
+  "xpjetpack.feature.shield": "经验护盾",
+  "xpjetpack.feature.shield.desc": "受到伤害时消耗经验抵挡一部分伤害",
+  "xpjetpack.feature.autosmelt": "经验熔炉",
+  "xpjetpack.feature.autosmelt.desc": "挖掘矿石时消耗经验自动熔炼成锭",
+
+  "xpjetpack.survival.header": "=== 经验生存套件 ===",
+  "xpjetpack.survival.usage": "用法：/xps <功能> on|off|toggle|status",
+  "xpjetpack.survival.no_player": "该指令只能由玩家执行。",
+  "xpjetpack.survival.unknown": "未知功能：%s",
+  "xpjetpack.survival.state.on": "开",
+  "xpjetpack.survival.state.off": "关",
+  "xpjetpack.survival.turned_on": "%s 已开启",
+  "xpjetpack.survival.turned_off": "%s 已关闭",
+  "xpjetpack.survival.toggled": "%s → %s",
+  "xpjetpack.survival.reloaded": "配置已重载",
+  "xpjetpack.survival.xp": "当前经验点：%s"
+}
