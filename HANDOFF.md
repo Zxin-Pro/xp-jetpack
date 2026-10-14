@@ -15,8 +15,7 @@
 ## 0.1 接手第一步（给接手的 AI）
 
 1. **读 §1**，按那里的步骤修 `gen.py` 里 `mc_range()` 的 26.x 精确匹配问题
-2. **同样的 bug** 在 `Infinite Stacks` 和 `Unbounded Height` 两个仓库里也存在，要分别修（见 §9 待办）
-3. §4–§8 是背景知识（工程结构 / 架构 / 跨版本分叉表 / 踩坑 / 构建推送流程），**改动时再查，不必先通读**
+2. §4–§8 是背景知识（工程结构 / 架构 / 跨版本分叉表 / 踩坑 / 构建推送流程），**改动时再查，不必先通读**
 
 ---
 
@@ -30,10 +29,6 @@ Fabric Loader 启动报错：
 模组 'XP Jetpack' (xpjetpack) 1.0.0 需要 'Minecraft' (minecraft) 的 [26.3] 版本，
 但已经安装了的版本 26.3 不对！
 ```
-
-同一份报错还涉及另外两个模组（**也是这个仓库体系产出的**）：
-`Infinite Stacks` (infinitestacks)、`Unbounded Height` (unbounded_height)。
-三者是同一个 bug，需要分别修各自的仓库。
 
 ### 根因
 
@@ -125,9 +120,6 @@ cd /tmp/fix && zip -X "$OLDPWD/$JAR" fabric.mod.json
 ```
 
 或者用任何压缩软件（7-Zip / WinRAR）打开 jar，把 `fabric.mod.json` 拖出来改完再拖回去。
-
-**同样的操作要做三遍**：`xpjetpack`、`infinitestacks`、`unbounded_height` 三个 jar 都要改，
-否则 Fabric Loader 会因为其中任意一个而拒绝启动。
 
 > 元数据里若还有其它 `depends` 项（如 `fabricloader`、`fabric-api`、`java`），
 > 报错信息会逐条列出，按同样方式放宽即可。
@@ -487,7 +479,6 @@ gh run view <run-id> --repo Zxin-Pro/xp-jetpack --log-failed | rg -i "error|Caus
 ### 待办
 
 - [ ] **修 `mc_range()` 的 26.x 精确匹配问题**（§1，当前阻塞）
-- [ ] 同样的 bug 存在于 **`Infinite Stacks`** 与 **`Unbounded Height`** 两个仓库，需分别修复
 - [ ] （可选）把生存套件补充进 `main/VERSIONS.md` 的版本表
 
 ---
