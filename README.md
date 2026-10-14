@@ -49,10 +49,86 @@
 默认**只在 `/fly` 开启后显示**，想要常驻把 `hud.always_visible` 设为 `true`；
 位置用 `hud.offset_y` 调（默认 45，即热键栏上方）。纯客户端绘制，零网络开销。
 
+## 2.2 生存套件（XP Survival Suite）
+
+除飞行外，模组还提供四个**默认开启、全自动**的生存辅助功能，全部用经验点驱动，
+**不需要任何物品**，也不需要手动触发。每个功能都能单独开关。
+
+| 功能 | 默认消耗 | 触发条件 | 说明 |
+|---|---|---|---|
+| 🌊 水下呼吸 | 2 经验/秒 | 头部浸入水中 | 维持呼吸，**不含夜视** |
+| 🔥 防火 | 3 经验/秒 | 着火或身处岩浆 | 免疫火焰/岩浆伤害，可选立即灭火 |
+| 🛡 经验护盾 | 4 经验/点伤害 | 受到伤害 | 默认抵挡 50%，**无音效**，提示按 40 tick 合并 |
+| ⛏ 经验熔炉 | 10 经验/块 | 挖掘矿石 | 掉落物直接换成熔炼产物；精准采集自动跳过；时运照常生效 |
+
+**经验不足时功能自动停用并聊天提示**，经验恢复后自动继续（若曾手动关闭则不会自动开启）。
+本模组**不添加任何音效**，所有提示都走聊天栏。
+
+### 指令
+
+| 指令 | 作用 |
+|---|---|
+| `/xpsurvival`（别名 `/xps`） | 查看全部功能状态 |
+| `/xps <功能> on\|off\|toggle` | 单独开关某个功能 |
+| `/xps <功能> status` | 查看单个功能状态与当前消耗 |
+| `/xps config <功能>` | 列出该功能的全部配置键 |
+| `/xps reload` | 重载配置 |
+| `/respiration`、`/fireproof`、`/shield`、`/autosmelt` | 每个功能的独立指令（等同 `/xps <功能>`） |
+
+### 配置键
+
+配置写在**同一个文件**里（见 §3），键名以功能 id 开头：
+
+```toml
+[global]
+    chatNotify = true          # 是否在聊天栏提示
+    creativeFree = true        # 创造模式不消耗经验
+    autoReenable = true        # 经验恢复后自动重新启用
+    respectManualToggle = true # 尊重手动关闭，不自动开启
+
+[respiration]
+    enabled = true
+    costPerSecond = 2.0
+
+[fireproof]
+    enabled = true
+    costPerSecond = 3.0
+    immunityLava = true
+    immunityBurn = true
+    extinguish = true
+
+[shield]
+    enabled = true
+    blockRatio = 0.5           # 抵挡比例 0~1
+    costPerDamage = 4.0
+    notifyMode = "merged"      # every / merged / broken
+
+[autosmelt]
+    enabled = true
+    costPerOre = 10.0
+    oreTags = "c:ores,forge:ores,minecraft:ores"
+    nameFallback = true        # 名称以 _ore 结尾的方块也算矿石
+    blacklist = ""             # 永不熔炼的方块 id，逗号分隔
+```
+
+### 扩展：如何新增一个功能
+
+见 [docs/INCREMENT-CONTRACT.md](docs/INCREMENT-CONTRACT.md) §11。标准流程只需两步：
+
+1. 在 `feature/impl/` 新建一个类实现 `Feature` 接口（`id` / `displayName` / `declareConfig` / 需要的事件回调）；
+2. 在 `feature/Features.java` 的 `bootstrap()` 里加一行 `FeatureRegistry.register(new YourFeature());`。
+
+配置键、独立指令、状态存储、聊天提示、语言文件、事件分发都会**自动接入**，
+三个加载器的代码一行都不用改。
+
 ## 3. 配置
 
 Forge/NeoForge：`config/xpjetpack-common.toml`
 Fabric：`config/xpjetpack.json`
+
+生存套件（§2.2）的配置键与飞行配置写在**同一份文件**里（键名以功能 id 开头）。
+Fabric 侧因为飞行配置是 Gson 序列化的强类型对象，功能配置另存为
+`config/xpjetpack-features.json`（扁平「键路径 → 值」表），互不干扰。
 
 | 键 | 默认 | 说明 |
 |---|---|---|
