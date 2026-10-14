@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/{{GITHUB_REPO}}/issues"
 
 [[mods]]
 modId="xpjetpack"
-version="1.0.0"
+version="1.0.1"
 displayName="XP Jetpack"
 authors="Zxin-Pro"
 logoFile="icon.png"

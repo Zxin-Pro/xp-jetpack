@@ -129,7 +129,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0-${{ github.run_number }}
+          tag_name: v1.0.1-${{ github.run_number }}
           name: XP Jetpack + 经验生存套件 (build ${{ github.run_number }})
           body: |
             22 个版本分支全部构建通过，附件是全部 jar，可直接下载测试。

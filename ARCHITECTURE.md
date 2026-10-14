@@ -11,9 +11,9 @@
 | 显示名 | XP Jetpack / 经验喷气背包 |
 | Maven group | `dev.zxin` |
 | Java 包根 | `dev.zxin.xpjetpack` |
-| 版本 | `1.0.0` |
+| 版本 | `1.0.1` |
 | LICENSE | MIT |
-| 产物名 | `xpjetpack-<loader>-<mc>-1.0.0.jar` |
+| 产物名 | `xpjetpack-<loader>-<mc>-1.0.1.jar` |
 
 ## 1. 目录 / 分支策略
 

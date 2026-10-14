@@ -59,28 +59,28 @@
 
 | # | 分支 | 结果 | 产物 |
 |---|---|---|---|
-| 1 | `forge-1.20.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.1-1.0.0.jar` |
-| 2 | `forge-1.20.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.2-1.0.0.jar` |
-| 3 | `forge-1.20.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.4-1.0.0.jar` |
-| 4 | `neoforge-1.20.6` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.20.6-1.0.0.jar` |
-| 5 | `neoforge-1.21.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.1-1.0.0.jar` |
-| 6 | `neoforge-1.21.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.4-1.0.0.jar` |
-| 7 | `neoforge-1.21.8` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.8-1.0.0.jar` |
-| 8 | `neoforge-1.21.11` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.11-1.0.0.jar` |
-| 9 | `neoforge-26.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.1-1.0.0.jar` |
-| 10 | `neoforge-26.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.2-1.0.0.jar` |
-| 11 | `neoforge-26.3` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.3-1.0.0.jar` |
-| 12 | `fabric-1.20.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.1-1.0.0.jar` |
-| 13 | `fabric-1.20.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.2-1.0.0.jar` |
-| 14 | `fabric-1.20.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.4-1.0.0.jar` |
-| 15 | `fabric-1.20.6` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.6-1.0.0.jar` |
-| 16 | `fabric-1.21.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.1-1.0.0.jar` |
-| 17 | `fabric-1.21.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.4-1.0.0.jar` |
-| 18 | `fabric-1.21.8` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.8-1.0.0.jar` |
-| 19 | `fabric-1.21.11` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.11-1.0.0.jar` |
-| 20 | `fabric-26.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.1-1.0.0.jar` |
-| 21 | `fabric-26.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.2-1.0.0.jar` |
-| 22 | `fabric-26.3` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.3-1.0.0.jar` |
+| 1 | `forge-1.20.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.1-1.0.1.jar` |
+| 2 | `forge-1.20.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.2-1.0.1.jar` |
+| 3 | `forge-1.20.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-forge-1.20.4-1.0.1.jar` |
+| 4 | `neoforge-1.20.6` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.20.6-1.0.1.jar` |
+| 5 | `neoforge-1.21.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.1-1.0.1.jar` |
+| 6 | `neoforge-1.21.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.4-1.0.1.jar` |
+| 7 | `neoforge-1.21.8` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.8-1.0.1.jar` |
+| 8 | `neoforge-1.21.11` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-1.21.11-1.0.1.jar` |
+| 9 | `neoforge-26.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.1-1.0.1.jar` |
+| 10 | `neoforge-26.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.2-1.0.1.jar` |
+| 11 | `neoforge-26.3` | ✅ BUILD SUCCESSFUL | `xpjetpack-neoforge-26.3-1.0.1.jar` |
+| 12 | `fabric-1.20.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.1-1.0.1.jar` |
+| 13 | `fabric-1.20.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.2-1.0.1.jar` |
+| 14 | `fabric-1.20.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.4-1.0.1.jar` |
+| 15 | `fabric-1.20.6` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.20.6-1.0.1.jar` |
+| 16 | `fabric-1.21.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.1-1.0.1.jar` |
+| 17 | `fabric-1.21.4` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.4-1.0.1.jar` |
+| 18 | `fabric-1.21.8` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.8-1.0.1.jar` |
+| 19 | `fabric-1.21.11` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-1.21.11-1.0.1.jar` |
+| 20 | `fabric-26.1` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.1-1.0.1.jar` |
+| 21 | `fabric-26.2` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.2-1.0.1.jar` |
+| 22 | `fabric-26.3` | ✅ BUILD SUCCESSFUL | `xpjetpack-fabric-26.3-1.0.1.jar` |
 
 覆盖范围：**1.20.1 → 26.3 全版本 × 全加载器（Forge 3 + NeoForge 8 + Fabric 11 = 22），22 / 22 分支全部编译通过并产出 JAR**，
 全部由真实 GitHub Actions 编译验证。

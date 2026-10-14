@@ -11,7 +11,7 @@
 > 全部由真实 GitHub Actions 编译验证，逐个分支产出 JAR。
 > 运行记录：<https://github.com/Zxin-Pro/xp-jetpack/actions>
 > 下载产物：进入任意分支对应的 workflow run → 页面底部 **Artifacts** 区下载
-> （命名 `xp-jetpack-<loader>-<mc_version>`，内含 `xpjetpack-<loader>-<mc>-1.0.0.jar`）。
+> （命名 `xp-jetpack-<loader>-<mc_version>`，内含 `xpjetpack-<loader>-<mc>-1.0.1.jar`）。
 
 ---
 
@@ -155,7 +155,7 @@ Fabric 侧因为飞行配置是 Gson 序列化的强类型对象，功能配置�
 
 ## 4. 安装
 
-1. 从 [Releases](../../releases) 或对应分支的 Actions 产物下载 `xpjetpack-<loader>-<mc>-1.0.0.jar`；
+1. 从 [Releases](../../releases) 或对应分支的 Actions 产物下载 `xpjetpack-<loader>-<mc>-1.0.1.jar`；
 2. 放进 `mods/` 目录（Fabric 还需安装 **Fabric API**）；
 3. 启动游戏，进服后输入 `/fly`。
 
