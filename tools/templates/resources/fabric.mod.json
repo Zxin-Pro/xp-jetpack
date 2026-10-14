@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "xpjetpack",
+  "version": "1.0.0",
+  "name": "XP Jetpack",
+  "description": "把玩家经验压缩成空气的指令喷气背包，支持鞘翅无烟花推进。",
+  "authors": [
+    "Zxin-Pro"
+  ],
+  "contact": {
+    "homepage": "https://github.com/{{GITHUB_REPO}}",
+    "sources": "https://github.com/{{GITHUB_REPO}}",
+    "issues": "https://github.com/{{GITHUB_REPO}}/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/xpjetpack/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.zxin.xpjetpack.fabric.XpJetpackFabric"
+    ],
+    "client": [
+      "dev.zxin.xpjetpack.fabric.client.XpJetpackFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "{{MC_RANGE}}",
+    "java": ">={{JAVA_MIN}}"
+  }
+}
