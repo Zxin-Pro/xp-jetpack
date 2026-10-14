@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "xpjetpack",
+  "version": "1.0.0",
+  "name": "XP Jetpack",
+  "description": "把玩家经验直接当燃料的指令喷气背包，支持鞘翅无烟花推进；另含经验生存套件（水下呼吸 / 防火 / 经验护盾 / 经验熔炉）。",
+  "authors": [
+    "Zxin-Pro"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Zxin-Pro/xp-jetpack",
+    "sources": "https://github.com/Zxin-Pro/xp-jetpack",
+    "issues": "https://github.com/Zxin-Pro/xp-jetpack/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/xpjetpack/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.zxin.xpjetpack.fabric.XpJetpackFabric"
+    ],
+    "client": [
+      "dev.zxin.xpjetpack.fabric.client.XpJetpackFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "[1.21.1,1.22)",
+    "java": ">=21"
+  }
+}
